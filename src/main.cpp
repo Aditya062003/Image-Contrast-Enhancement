@@ -21,6 +21,9 @@ int main(int argc, char** argv)
         return -1;
     }
 
+    // Create output directory if it doesn't exist
+    system("mkdir -p output_images");
+
     high_resolution_clock::time_point start_time, end_time;
 
     start_time = high_resolution_clock::now();
@@ -95,20 +98,22 @@ int main(int argc, char** argv)
     end_time = high_resolution_clock::now();
     MyTimeOutput("SEF处理时间: ", start_time, end_time);
 
-    cv::imshow("src", src);
-    cv::imshow("AINDANE_dst", AINDANE_dst);
-    cv::imshow("WTHE_dst", WTHE_dst);
-    cv::imshow("GCEHistMod_dst", GCEHistMod_dst);
-    cv::imshow("LDR_dst", LDR_dst);
-    cv::imshow("AGCWD_dst", AGCWD_dst);
-    cv::imshow("AGCIE_dst", AGCIE_dst);
-    cv::imshow("IAGCWD_dst", IAGCWD_dst);
-    cv::imshow("Ying_dst", Ying_dst);
-    cv::imshow("CEusingLuminanceAdaptation_dst", CEusingLuminanceAdaptation_dst);
-    cv::imshow("adaptiveImageEnhancement_dst", adaptiveImageEnhancement_dst);
-    cv::imshow("JHE_dst", JHE_dst);
-    cv::imshow("SEF_dst", SEF_dst);
-	
-    cv::waitKey();
+    // Save all images to output directory
+    cv::imwrite("output_images/src.jpg", src);
+    cv::imwrite("output_images/AINDANE_dst.jpg", AINDANE_dst);
+    cv::imwrite("output_images/WTHE_dst.jpg", WTHE_dst);
+    cv::imwrite("output_images/GCEHistMod_dst.jpg", GCEHistMod_dst);
+    cv::imwrite("output_images/LDR_dst.jpg", LDR_dst);
+    cv::imwrite("output_images/AGCWD_dst.jpg", AGCWD_dst);
+    cv::imwrite("output_images/AGCIE_dst.jpg", AGCIE_dst);
+    cv::imwrite("output_images/IAGCWD_dst.jpg", IAGCWD_dst);
+    cv::imwrite("output_images/Ying_dst.jpg", Ying_dst);
+    cv::imwrite("output_images/CEusingLuminanceAdaptation_dst.jpg", CEusingLuminanceAdaptation_dst);
+    cv::imwrite("output_images/adaptiveImageEnhancement_dst.jpg", adaptiveImageEnhancement_dst);
+    cv::imwrite("output_images/JHE_dst.jpg", JHE_dst);
+    cv::imwrite("output_images/SEF_dst.jpg", SEF_dst);
+
+    std::cout << "All enhanced images have been saved to the 'output_images' directory." << std::endl;
+    
     return 0;
 }

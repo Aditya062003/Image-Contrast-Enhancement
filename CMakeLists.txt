@@ -4,7 +4,7 @@ project(image_contrast_enhancement)
 
 set(CMAKE_CXX_STANDARD 11)
 
-find_package(OpenCV 3 REQUIRED)
+find_package(OpenCV REQUIRED)
 find_package(dlib REQUIRED)
 find_package(Armadillo REQUIRED)
 include_directories(
