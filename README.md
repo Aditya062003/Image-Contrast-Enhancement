@@ -59,6 +59,11 @@ C++ implementation of several image contrast enhancement techniques.
 * SuperLU-5.2.1+
 * Armadillo-9.800.3+
   * Before install Armadillo, SuperLU 5 must be installed.
+
+```
+sudo apt update
+sudo apt install -y build-essential cmake libopencv-dev libdlib-dev libsuperlu-dev libarmadillo-dev
+```
   
 ## Usage
 ```
